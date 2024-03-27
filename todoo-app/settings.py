@@ -1,4 +1,3 @@
-# settings.py
 from starlette.config import Config
 from starlette.datastructures import Secret
 
@@ -9,5 +8,4 @@ except FileNotFoundError:
 
 DATABASE_URL = config("DATABASE_URL", cast=Secret)
 
-TEST_DATABASE_URL = config(
-    "TEST_DATABASE_URL", cast=Secret, default=None)
+TEST_DATABASE_URL = config("TEST_DATABASE_URL", cast=Secret)

@@ -148,7 +148,9 @@ Hint: make sure your test modules/packages have valid Python names.
 Traceback:
 C:\Python312\Lib\importlib\__init__.py:90: in import_module
     return_bootstrap._gcd_import(name[level:], package, level)
-tests\test_myproject.py:1: in ## <module>
+tests\test_myproject.py:1: in ## $$
+<###module>
+$$
     from project_001 import main
 E   ModuleNotFoundError: No module named 'project_001'
 =============================================== short test summary info ===============================================
@@ -261,3 +263,90 @@ INFO:     127.0.0.1:63181 - "GET /docs HTTP/1.1" 200 OK
 INFO:     127.0.0.1:63181 - "GET /openapi.json HTTP/1.1" 200 OK
 INFO:     127.0.0.1:63214 - "GET / HTTP/1.1" 200 OK
 INFO:     127.0.0.1:63224 - "GET /city HTTP/1.1" 200 OK
+
+## To doo app workings
+
+(base) PS C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app> poetry run uvicorn todoo-app.main:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Batch 37 PIAIC\\generative-ai\\assignment\\todoo_app']
+INFO:     Uvicorn running on <http://127.0.0.1:8000> (Press CTRL+C to quit)
+INFO:     Started reloader process [12924] using StatReload
+INFO:     Started server process [12720]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     127.0.0.1:60239 - "GET / HTTP/1.1" 200 OK
+
+(base) PS C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app> poetry run uvicorn todoo-app.main:app --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Batch 37 PIAIC\\generative-ai\\assignment\\todoo_app']
+INFO:     Uvicorn running on <http://127.0.0.1:8000> (Press CTRL+C to quit)
+INFO:     Started reloader process [9268] using StatReload
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Python312\Lib\multiprocessing\process.py", line 314, in_bootstrap
+    self.run()
+  File "C:\Python312\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\_subprocess.py", line 78, in subprocess_started
+    target(sockets=sockets)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 65, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 685, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 69, in serve
+    await self._serve(sockets)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 76, in _serve
+    config.load()
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\config.py", line 433, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\importer.py", line 22, in import_from_string
+    raise exc from None
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in_gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in_find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in_call_with_frames_removed
+  File "C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app\todoo-app\main.py", line 12, in <module>
+    create_eng = create_engine(db_url , echo= True )
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args,**kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\engine\create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\dialects\postgresql\psycopg2.py", line 690, in import_dbapi
+    import psycopg2
+ModuleNotFoundError: No module named 'psycopg2'
+
+(base) PS C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app> poetry add psycopg2
+Using version ^2.9.9 for psycopg2
+
+Updating dependencies
+Resolving dependencies... (5.2s)
+
+Package operations: 6 installs, 0 updates, 0 removals
+
+- Installing httptools (0.6.1)
+- Installing python-dotenv (1.0.1)
+- Installing pyyaml (6.0.1)
+- Installing watchfiles (0.21.0)
+- Installing websockets (12.0)
+- Installing psycopg2 (2.9.9)
+
+Writing lock file
