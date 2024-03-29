@@ -1,29 +1,28 @@
-from fastapi import FastAPI, Depends, HTTPException , Query
+from fastapi import FastAPI, Depends, Query, HTTPException
 from sqlmodel import SQLModel, Session, create_engine, select, Field
-from todoo_app import settings
+from todooo_app import settings
 from contextlib import asynccontextmanager
 from typing import Optional, Annotated
-from fastapi.middleware.cors import CORSMiddleware
 
 class Todo(SQLModel, table=True):
-    id: Optional[int] = Field(default=None, primary_key=True,)
-    todo: str = Field(index=True)
-    status: bool = Field(default=False)
+    id : Optional[int] = Field(default=None, primary_key=True,)
+    todo : str = Field(index=True)
+    status : bool = Field(default=False)
 
 connectionString = str(settings.DATABASE_URL).replace("postgresql", "postgresql+psycopg")
 
-engine = create_engine(connectionString, connect_args={"sslmode": "require"}, pool_recycle=500)
+engine = create_engine(connectionString, connect_args={"sslmode" : "require"}, pool_recycle=500)
 
 def db_create_and_tables():
     SQLModel.metadata.create_all(engine)
 
 @asynccontextmanager
-async def life_span(app: FastAPI):
+async def life_span(app : FastAPI):
     print("Creating Tables...")
     db_create_and_tables()
     yield 
 
-app = FastAPI(lifespan = life_span, title="Hello World API with DB",)
+app = FastAPI(lifespan = life_span, title="Hello World API with DB", )
 
 def get_session():
     with Session(engine) as session:

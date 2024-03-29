@@ -350,3 +350,113 @@ Package operations: 6 installs, 0 updates, 0 removals
 - Installing psycopg2 (2.9.9)
 
 Writing lock file
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>poetry run uvicorn todooo_app.fastneon:app --port 8000 --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Batch 37 PIAIC\\generative-ai\\assignment\\todoo_app']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [14200] using WatchFiles
+Process SpawnProcess-1:
+Traceback (most recent call last):
+  File "C:\Python312\Lib\multiprocessing\process.py", line 314, in _bootstrap
+    self.run()
+  File "C:\Python312\Lib\multiprocessing\process.py", line 108, in run
+    self._target(*self._args, **self._kwargs)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\_subprocess.py", line 78, in subprocess_started
+    target(sockets=sockets)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 65, in run
+    return asyncio.run(self.serve(sockets=sockets))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 194, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\asyncio\base_events.py", line 685, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 69, in serve
+    await self._serve(sockets)
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\server.py", line 76, in _serve
+    config.load()
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\config.py", line 433, in load
+    self.loaded_app = import_from_string(self.app)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\uvicorn\importer.py", line 19, in import_from_string
+    module = importlib.import_module(module_str)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python312\Lib\importlib\__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app\todooo_app\fastneon.py", line 14, in <module>
+    engine = create_engine(connectionString, connect_args={"sslmode" : "require"}, pool_recycle=500)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in create_engine
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\util\deprecations.py", line 281, in warned
+    return fn(*args, **kwargs)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\engine\create.py", line 599, in create_engine
+    dbapi = dbapi_meth(**dbapi_args)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\sqlalchemy\dialects\postgresql\psycopg.py", line 378, in import_dbapi
+    import psycopg
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\psycopg\__init__.py", line 9, in <module>
+    from . import pq  # noqa: F401 import early to stabilize side effects
+    ^^^^^^^^^^^^^^^^
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\psycopg\pq\__init__.py", line 114, in <module>
+    import_from_libpq()
+  File "C:\Users\Batch 37 PIAIC\AppData\Local\pypoetry\Cache\virtualenvs\too-do-app-Tr1zFhYc-py3.12\Lib\site-packages\psycopg\pq\__init__.py", line 106, in import_from_libpq
+    raise ImportError(
+ImportError: no pq wrapper available.
+Attempts made:
+- couldn't import psycopg 'c' implementation: No module named 'psycopg_c'
+- couldn't import psycopg 'binary' implementation: No module named 'psycopg_binary'
+- couldn't import psycopg 'python' implementation: Could not find module 'C:\Users\Batch 37 PIAIC\Anaconda3\Library\bin\libpq.dll' (or one of its dependencies). Try using the full path with constructor syntax.
+INFO:     Stopping reloader process [14200]
+
+- C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>
+
+- C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>clear
+'clear' is not recognized as an internal or external command,
+operable program or batch file.
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>poetry upgrade "psycopg[binary,pool]"
+
+The command "upgrade" does not exist.
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>pip upgrade "psycopg[binary,pool]"
+ERROR: unknown command "upgrade"
+
+### this commands clear the error >> pip install "psycopg[binary,pool]"
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>pip install "psycopg[binary,pool]"
+Requirement already satisfied: psycopg[binary,pool] in c:\users\batch 37 piaic\appdata\local\pypoetry\cache\virtualenvs\too-do-app-tr1zfhyc-py3.12\lib\site-packages (3.1.18)
+Requirement already satisfied: typing-extensions>=4.1 in c:\users\batch 37 piaic\appdata\local\pypoetry\cache\virtualenvs\too-do-app-tr1zfhyc-py3.12\lib\site-packages (from psycopg[binary,pool]) (4.10.0)
+Requirement already satisfied: tzdata in c:\users\batch 37 piaic\appdata\local\pypoetry\cache\virtualenvs\too-do-app-tr1zfhyc-py3.12\lib\site-packages (from psycopg[binary,pool]) (2024.1)
+Collecting psycopg-binary==3.1.18 (from psycopg[binary,pool])
+  Downloading psycopg_binary-3.1.18-cp312-cp312-win_amd64.whl.metadata (2.9 kB)
+Collecting psycopg-pool (from psycopg[binary,pool])
+  Downloading psycopg_pool-3.2.1-py3-none-any.whl.metadata (2.6 kB)
+Downloading psycopg_binary-3.1.18-cp312-cp312-win_amd64.whl (2.9 MB)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.9/2.9 MB 428.3 kB/s eta 0:00:00
+Downloading psycopg_pool-3.2.1-py3-none-any.whl (37 kB)
+Installing collected packages: psycopg-pool, psycopg-binary
+Successfully installed psycopg-binary-3.1.18 psycopg-pool-3.2.1
+
+C:\Users\Batch 37 PIAIC\generative-ai\assignment\todoo_app>poetry run uvicorn todooo_app.fastneon:app --port 8000 --reload
+INFO:     Will watch for changes in these directories: ['C:\\Users\\Batch 37 PIAIC\\generative-ai\\assignment\\todoo_app']
+INFO:     Uvicorn running on http://127.0.0.1:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [1076] using WatchFiles
+INFO:     Started server process [12492]
+INFO:     Waiting for application startup.
+Creating Tables...
+INFO:     Application startup complete.
+INFO:     127.0.0.1:58541 - "GET / HTTP/1.1" 200 OK
